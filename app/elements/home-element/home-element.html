@@ -1,0 +1,128 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-styles/typography.html">
+<link rel="import" href="../../bower_components/iron-swipeable-container/iron-swipeable-container.html">
+
+<dom-module id="home-element">
+  <template>
+    <style include="shared-styles">
+      :host {
+        display: block;
+      }
+
+      span,
+      input {
+        @apply(--paper-font-body2);
+      }
+
+      paper-fab {
+        margin: 0;
+        bottom: 20px;
+        right: 14px;
+        background-color: #d23f31;
+        height: 56px;
+        position: fixed;
+        width: 56px;
+        cursor: pointer;
+      }
+
+      .deleteCount {
+        position: absolute;
+        right: 40px;
+        /*color: #d23f31;*/
+      }
+    </style>
+    
+    <template is="dom-if" if="{{!selectedEvent}}">
+      <paper-material id="noEventLoaded" elevation="1">
+        <h1 class="page-title" tabindex="-1">No event loaded</h1>
+      </paper-material>
+
+      <a data-route="oldEvents" href="{{baseUrl}}oldEvents">
+        <paper-button class="fbtn no-margin" toggles raised style="color: blue;"><iron-icon icon="file-upload"></iron-icon>Load an old event?</paper-button>
+      </a>
+    </template>
+    
+    <template is="dom-if" if="{{selectedEvent}}">
+    
+      <paper-material elevation="1">
+        <event-name event-name="{{selectedEvent.name}}"></event-name>
+      </paper-material>
+
+      <template is="dom-repeat" items="{{selectedEvent.counters}}">
+        <!-- <iron-swipeable-container on-iron-swipe="deleteCounter" title="Swipe to delete this counter"> -->
+          
+          <paper-material elevation="1">
+              <paper-icon-button on-click="deleteCounter" class="deleteCount" icon="delete" title="Delete this counter"></paper-icon-button>
+
+              <event-details eventd="{{item.name}}" counter="{{item.value}}"></event-details>
+          </paper-material>
+
+        <!-- </iron-swipeable-container> -->
+      </template>
+
+      <paper-fab on-click="addCounter" icon="add" title="Add counter"></paper-fab>
+    </template>
+
+  </template>
+
+  <script>
+    Polymer({
+      is: 'home-element',
+      properties: {
+        selectedEvent: {
+          type: Object,
+          default: f => {
+            return {};
+          },
+          notify: true
+        }
+      },
+
+      observers: [
+        '_itemChanged(selectedEvent.*)'
+      ],
+
+      _itemChanged(changeRecord) {
+        if (this.selectedEvent) {
+          console.log("selectedEvent Saved in lf");
+          app.lForageSaveAll();
+        }
+      },
+
+      ready: function() {
+        if (!this.selectedEvent) {
+          console.log("Inside");
+          page.redirect('/oldEvents');
+        }
+      },
+
+      addCounter: function(e) {
+        var numberOfCounters = this.selectedEvent.counters.length;
+
+        this.push('selectedEvent.counters', {
+          name: 'Counter ' + (numberOfCounters+1),
+          value: 0
+        });
+
+        app.lForageSaveEvent(this.selectedEvent);
+
+      },
+
+      deleteCounter: function(e) {
+        var counter = e.model.item;
+        var pos = this.selectedEvent.counters.indexOf(counter);
+        app.splice('selectedEvent.counters', pos, 1);
+        app.lForageSaveEvent(this.selectedEvent);
+        document.querySelector('#deleteCounterList').toggle()
+      },
+
+      myDelete: function(e) {
+        // var event = e.model.item;
+        console.log('Remove event: ' + '"' + this.selectedEvent.name + '"' + ' with id: ' + this.selectedEvent.id);
+        app.lForageRemoveEvent(this.selectedEvent);
+      }
+
+    });
+  </script>
+  <!-- <script src="scripts/app.js"></script> -->
+</dom-module>
