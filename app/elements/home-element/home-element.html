@@ -32,97 +32,23 @@
       }
     </style>
     
-    <template is="dom-if" if="{{!selectedEvent}}">
-      <paper-material id="noEventLoaded" elevation="1">
-        <h1 class="page-title" tabindex="-1">No event loaded</h1>
-      </paper-material>
-
-      <a data-route="oldEvents" href="{{baseUrl}}oldEvents">
-        <paper-button class="fbtn no-margin" toggles raised style="color: blue;"><iron-icon icon="file-upload"></iron-icon>Load an old event?</paper-button>
+    <paper-material elevation="1">
+      <p>Country: Greece</p>
+      <p>Birth Date: 24 April 1994</p>
+      <p>Student at Electrical and Computer Engineering, University of Thessaly. Graduation: 2017</p>
+      <a href="https://www.e-ce.uth.gr/?lang=en" target="_blank">
+        <iron-image src="/images/uth.png" class="universityImg" alt="University of Thessaly"></iron-image>
       </a>
-    </template>
-    
-    <template is="dom-if" if="{{selectedEvent}}">
-    
-      <paper-material elevation="1">
-        <event-name event-name="{{selectedEvent.name}}"></event-name>
-      </paper-material>
+      <p class="subhead">Interested in:</p>
+      <my-list></my-list>
 
-      <template is="dom-repeat" items="{{selectedEvent.counters}}">
-        <!-- <iron-swipeable-container on-iron-swipe="deleteCounter" title="Swipe to delete this counter"> -->
-          
-          <paper-material elevation="1">
-              <paper-icon-button on-click="deleteCounter" class="deleteCount" icon="delete" title="Delete this counter"></paper-icon-button>
-
-              <event-details eventd="{{item.name}}" counter="{{item.value}}"></event-details>
-          </paper-material>
-
-        <!-- </iron-swipeable-container> -->
-      </template>
-
-      <paper-fab on-click="addCounter" icon="add" title="Add counter"></paper-fab>
-    </template>
+    </paper-material>
 
   </template>
 
   <script>
     Polymer({
-      is: 'home-element',
-      properties: {
-        selectedEvent: {
-          type: Object,
-          default: f => {
-            return {};
-          },
-          notify: true
-        }
-      },
-
-      observers: [
-        '_itemChanged(selectedEvent.*)'
-      ],
-
-      _itemChanged(changeRecord) {
-        if (this.selectedEvent) {
-          console.log("selectedEvent Saved in lf");
-          app.lForageSaveAll();
-        }
-      },
-
-      ready: function() {
-        if (!this.selectedEvent) {
-          console.log("Inside");
-          page.redirect('/oldEvents');
-        }
-      },
-
-      addCounter: function(e) {
-        var numberOfCounters = this.selectedEvent.counters.length;
-
-        this.push('selectedEvent.counters', {
-          name: 'Counter ' + (numberOfCounters+1),
-          value: 0
-        });
-
-        app.lForageSaveEvent(this.selectedEvent);
-
-      },
-
-      deleteCounter: function(e) {
-        var counter = e.model.item;
-        var pos = this.selectedEvent.counters.indexOf(counter);
-        app.splice('selectedEvent.counters', pos, 1);
-        app.lForageSaveEvent(this.selectedEvent);
-        document.querySelector('#deleteCounterList').toggle()
-      },
-
-      myDelete: function(e) {
-        // var event = e.model.item;
-        console.log('Remove event: ' + '"' + this.selectedEvent.name + '"' + ' with id: ' + this.selectedEvent.id);
-        app.lForageRemoveEvent(this.selectedEvent);
-      }
-
+      is: 'home-element'
     });
   </script>
-  <!-- <script src="scripts/app.js"></script> -->
 </dom-module>

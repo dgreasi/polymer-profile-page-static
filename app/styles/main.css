@@ -25,14 +25,10 @@ body {
 }
 
 .profileImg {
-    /*margin: 0;*/
-    bottom: 0px;
-    /*left: 14px;*/
-    /*background-color: #d23f31;*/
-    /*height: 56px;*/
+    border-radius: 50%;
+    right: 10px;
+    top: 10px;
     position: fixed;
-    /*width: 56px;*/
-    /*cursor: pointer;*/
 }
 
 .githubProfile {
