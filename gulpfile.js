@@ -139,12 +139,12 @@ gulp.task('copy', function() {
   // These are things which cannot be vulcanized
   var bowerFolders = [
     'webcomponentsjs',
-    'platinum-sw',
-    'sw-toolbox',
-    'promise-polyfill',
-    'jQuery',
-    'localforage',
-    'polymer-localforage'
+    // 'platinum-sw',
+    // 'sw-toolbox',
+    // 'promise-polyfill',
+    // 'jQuery',
+    // 'localforage',
+    // 'polymer-localforage'
   ].join(',');
   var bower = gulp.src([
     'app/bower_components/{' + bowerFolders + '}/**/*'
