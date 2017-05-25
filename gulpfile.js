@@ -153,7 +153,7 @@ gulp.task('copy', function() {
   // Copy over only the node modules we need
   // These are things which cannot be vulcanized
   var nodeFolders = [
-    '@reactivex',
+    // '@reactivex',
     'nop' // just a filler so that {} works
   ].join(',');
   var node_modules = gulp.src([
@@ -304,7 +304,7 @@ gulp.task('default', ['clean'], function(cb) {
     ['ensureFiles', 'copy', 'styles'],
     'js',
     ['images', 'fonts', 'html'],
-    'vulcanize', // 'cache-config',
+    'vulcanize', 'cache-config',
     cb);
 });
 
