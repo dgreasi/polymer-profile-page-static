@@ -2,8 +2,9 @@
 A profile page created with polymer project.
 
 # Installation
-```js
+```bash
 npm install -g polymer-cli
+npm install -g bower
 ```
 
 # Use
@@ -13,7 +14,9 @@ git clone https://github.com/Temeteron/polymer_profile_page_static.git
 # Cd to the directory
 cd /polymer_profile_page_static
 # Install dependencies
-npm install
+bower install
 # Run the project
-gulp serve
+polymer serve --open
+# Build
+polymer build
 ```
