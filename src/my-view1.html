@@ -19,16 +19,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         padding: 10px;
       }
+
+      .profile-picture-cont {
+          flex: 0.45 1 180px;
+          align-self: center;
+      }
     </style>
 
     <div class="card">
-      <p>Country: My country</p>
-      <p>Birth Date: My birth date</p>
-      <p>Where you studied. Graduation: graduation date</p>
-      <a href="" target="_blank">
-        <iron-image src="" class="universityImg" alt="Link to your university"></iron-image>
-      </a>
-      <p class="subhead">Interested in:</p>
+      <div class="flex-item-with-addons">
+
+        <div class="flex-main-item profile-picture-cont">
+          <iron-image src="/images/fav/profile-icon-1.png"></iron-image>
+        </div>
+
+        <div class="flex-main-item">
+          <p>Country: My country</p>
+          <p>Birth Date: My birth date</p>
+          <p>Where you studied. Graduation: graduation date</p>
+          <a href="" target="_blank">
+            <iron-image src="" class="universityImg" alt="Link to your university"></iron-image>
+          </a>
+          <p class="subhead">Interested in:</p>
+        </div>
+
+      </div>
     </div>
   </template>
 
