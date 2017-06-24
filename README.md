@@ -23,12 +23,12 @@ polymer build
 
 # Deploy
 
-1) If you want to deploy to a root path your profile page, like your_name.github.io, then just copy all the content of the build folder, which is generated after running:
+1) If you want to deploy to a root path your profile page, like https://your_name.github.io, then just copy all the content of the build folder, which is generated after running:
     ```
     polymer  build
     ```
     and deploy.
-2) If you want to deploy to a non-root path your profile page, like your_name.github.io/my_profile, then you should go to the file:
+2) If you want to deploy to a non-root path your profile page, like your_https://name.github.io/my_profile, then you should go to the file:
     ```
     /polymer_profile_page_static/index.html
     ```
