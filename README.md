@@ -1,5 +1,6 @@
 # polymer_profile_page_static
 A profile page created with polymer 2.
+Responsive and adaptable to any device (mobile, tablet, desktop)
 
 # Installation
 ```bash
