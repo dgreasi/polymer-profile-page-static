@@ -1,5 +1,5 @@
 # polymer_profile_page_static
-A profile page created with polymer 2.
+A profile page created with polymer 3.
 
 # Installation
 ```bash
