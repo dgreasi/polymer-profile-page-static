@@ -1,13 +1,3 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer/app-drawer.html">
 <link rel="import" href="../bower_components/app-layout/app-drawer-layout/app-drawer-layout.html">
@@ -24,6 +14,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 <link rel="import" href="my-icons.html">
 
 <link rel="lazy-import" href="my-view1.html">
+<link rel="lazy-import" href="my-education.html">
 <link rel="lazy-import" href="my-projects.html">
 <link rel="lazy-import" href="my-contact.html">
 <link rel="lazy-import" href="my-view404.html">
@@ -117,6 +108,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-toolbar>Menu</app-toolbar>
         <iron-selector selected="[[page]]" attr-for-selected="name" class="drawer-list" role="navigation">
           <a name="view1" href="view1">About me</a>
+          <!-- <a name="education" href="education">Education</a> -->
+          <a name="publications" href="publications">Publications</a>
           <a name="projects" href="projects">My Projects</a>
           <a name="contact" href="contact">Contact</a>
         </iron-selector>
@@ -128,7 +121,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <app-header slot="header" condenses reveals effects="waterfall" >
           <app-toolbar>
             <paper-icon-button icon="my-icons:menu" drawer-toggle></paper-icon-button>
-            <div main-title>Greasidis Dimitris</div>
+            <div main-title>Greasidis Dimitrios</div>
           </app-toolbar>
         </app-header>
 
@@ -138,6 +131,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
             fallback-selection="view404"
             role="main">
           <my-view1 name="view1"></my-view1>
+          <!-- <my-education name="education"></my-education> -->
+          <my-publications name="publications"></my-publications>
           <my-projects name="projects"></my-projects>
           <my-contact name="contact"></my-contact>
           <my-view404 name="view404"></my-view404>
