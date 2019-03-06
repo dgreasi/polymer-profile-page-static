@@ -37,6 +37,28 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       }
     </style>
 
+    <firebase-app
+      auth-domain="greasidis-dimitris.firebaseapp.com"
+      database-url="https://greasidis-dimitris.firebaseio.com/"
+      api-key="AIzaSyDuFr-m0OO-vO1mfmLsGCQ1TGzcp6J8RH8"
+      storage-bucket="greasidis-dimitris.appspot.com"
+      messaging-sender-id="728016091015"
+      project-id="greasidis-dimitris">
+    </firebase-app>
+
+    <firebase-query
+        id="query"
+        app-name="notes"
+        path=""
+        data="{{data}}">
+    </firebase-query>
+
+    <div class="card">
+      <template is="dom-repeat" items="{{data}}" as="note">
+        <div data="{{note}}"></div>
+      </template>
+    </div>
+
     <div class="card">
       <div class="flex-item-with-addons">
 
@@ -116,10 +138,31 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
   </template>
 
   <script>
-    class MyView1 extends Polymer.Element {
-      static get is() { return 'my-view1'; }
-    }
+    Polymer({
+      is: 'my-view1',
+      properties: {
+        data: {
+          type: Object,
+        }
+      },
 
-    window.customElements.define(MyView1.is, MyView1);
+      ready: function() {
+        console.table(this.data);
+      },
+
+    });
+    
+    // class MyView1 extends Polymer.Element {
+
+    //   static get is() { return 'my-view1'; }
+
+    // //   getDataFirebase() {
+    // //     firebase.database().ref().then(res => {
+    // //       console.table(res);
+    // //     });
+    // //   }
+    // }
+
+    // window.customElements.define(MyView1.is, MyView1);
   </script>
 </dom-module>
