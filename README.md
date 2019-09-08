@@ -18,5 +18,5 @@ bower install
 # Run the project
 polymer serve --open
 # Build
-polymer build
+polymer build --js-compile
 ```

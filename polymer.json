@@ -1,6 +1,12 @@
 {
   "entrypoint": "index.html",
   "shell": "src/my-app.html",
+  "builds": [{
+    "bundle": true,
+    "js": {"compile": true, "minify": true},
+    "css": {"minify": true},
+    "html": {"minify": true}
+  }],
   "fragments": [
     "src/my-view1.html",
     "src/my-projects.html",

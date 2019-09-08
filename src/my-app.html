@@ -93,6 +93,27 @@
           /*border-radius: 50%;*/
       }
 
+      #loader-wrapper .loader-section {
+          position: fixed;
+          top: 0;
+          width: 51%;
+          height: 100%;
+          background: #222222;
+          z-index: 1000;
+      }
+       
+      #loader-wrapper .loader-section.section-left {
+          left: 0;
+      }
+
+      #loader-wrapper .loader-section.section-right {
+          right: 0;
+      }
+
+      #loader {
+          z-index: 1001; /* anything higher than z-index: 1000 of .loader-section */
+      }
+
     </style>
 
     <app-location route="{{route}}"></app-location>
@@ -128,7 +149,7 @@
         <iron-pages
             selected="[[page]]"
             attr-for-selected="name"
-            fallback-selection="view404"
+            fallback-selection="view1"
             role="main">
           <my-view1 name="view1"></my-view1>
           <!-- <my-education name="education"></my-education> -->
