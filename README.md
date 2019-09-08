@@ -19,4 +19,6 @@ bower install
 polymer serve --open
 # Build
 polymer build --js-compile
+# Minify build
+polymer build --bundle --css-minify --html-minify --js-minify
 ```
