@@ -1,4 +1,3 @@
-
 # [START gae_quickstart_yaml]
 
 runtime: python27
@@ -6,11 +5,23 @@ threadsafe: yes
 
 handlers:
 
-- url: /(.+)
-  static_files: default/\1
-  upload: default/(.*)
-
 - url: /
+  static_files: default/index.html
+  upload: default/index.html
+
+- url: /view1
+  static_files: default/index.html
+  upload: default/index.html
+
+- url: /publications
+  static_files: default/index.html
+  upload: default/index.html
+
+- url: /projects
+  static_files: default/index.html
+  upload: default/index.html
+
+- url: /contact
   static_files: default/index.html
   upload: default/index.html
 
@@ -19,4 +30,9 @@ handlers:
   upload: default/(.*\.js\.map)
   http_headers:
     Content-Type: application/octet-stream
+
+- url: /(.+)
+  static_files: default/\1
+  upload: default/(.*)
+
 # [END gae_quickstart_yaml]
