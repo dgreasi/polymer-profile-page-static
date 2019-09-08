@@ -1,14 +1,4 @@
-<!--
-@license
-Copyright (c) 2016 The Polymer Project Authors. All rights reserved.
-This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
-The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
-The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
-Code distributed by Google as part of the polymer project is also
-subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
--->
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -16,6 +6,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
 
     <title>Profile</title>
+    <link rel="stylesheet" href="src/main.css">
     <meta name="description" content="Greasidis Dimitris profile page">
 
     <!--
@@ -52,8 +43,10 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     <meta name="msapplication-TileImage" content="images/manifest/mipmap-xxhdpi/ic_launcher.png">
     <meta name="msapplication-TileColor" content="#3f51b5">
     <meta name="msapplication-tap-highlight" content="no">
+    <script>('dimitris.greasidis.com'===window.location.host)&&'https:'!==window.location.protocol&&(window.location.protocol='https')</script>
 
-    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="src/main.js"></script>
     <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
     <script>
       // Initialize Firebase
@@ -68,9 +61,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       firebase.initializeApp(config);
     </script>
 
-    <script>
+    <!-- <script>
       // Register the base URL
-      const baseUrl = document.querySelector('base').href;
+      // const baseUrl = document.querySelector('base').href;
       // console.log("Base: " + baseUrl);
 
       // Load and register pre-caching Service Worker
@@ -79,7 +72,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       //     navigator.serviceWorker.register(baseUrl + 'service-worker.js');
       //   });
       // }
-    </script>
+    </script>-->
 
     <!-- Load webcomponents-loader.js to check and load any polyfills your browser needs -->
     <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
@@ -99,7 +92,18 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
     </style>
   </head>
   <body>
-    <my-app></my-app>
+
+    <div id="loader-wrapper">
+        <div id="loader"></div>
+     
+        <div class="loader-section section-left"></div>
+        <div class="loader-section section-right"></div>
+     
+    </div>
+    
+    <div id="content">
+      <my-app></my-app>
+    </div>
     <noscript>
       Please enable JavaScript to view this website.
     </noscript>
