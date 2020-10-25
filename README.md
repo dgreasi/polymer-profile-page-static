@@ -1,4 +1,4 @@
-# polymer_profile_page_static
+# polymer-profile-page-static
 A profile page created with polymer 2.
 Responsive and adaptable to any device (mobile, tablet, desktop)
 
