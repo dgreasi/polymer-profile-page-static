@@ -7,7 +7,7 @@
     "copy-yaml": "cp ./opt_to_deploy/app.yaml ./build/default",
     "build": "npm run copy-libraries && polymer build --bundle --css-minify --html-minify --js-minify",
     "predeploy": "npx bower install && npm run build && npm run copy-yaml",
-    "deploy": "gcloud app deploy build/default/app.yaml --no-promote --project greasidis-dimitris --version 2020",
+    "deploy": "gcloud app deploy build/default/app.yaml --no-promote --project greasidis-dimitris --version 2020-1",
     "lint": "npm run lint:javascript",
     "lint:javascript": "eslint . --ext js,html --ignore-path .gitignore"
   },
