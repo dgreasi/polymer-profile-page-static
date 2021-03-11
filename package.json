@@ -5,9 +5,10 @@
     "start": "polymer serve --open",
     "copy-libraries": "cp -r ./app/bower_components ./bower_components",
     "copy-yaml": "cp ./opt_to_deploy/app.yaml ./build/default",
+    "copy-ads": "cp ./opt_to_deploy/app-ads.txt ./build/default",
     "build": "npm run copy-libraries && polymer build --bundle --css-minify --html-minify --js-minify",
-    "predeploy": "npx bower install && npm run build && npm run copy-yaml",
-    "deploy": "gcloud app deploy build/default/app.yaml --no-promote --project greasidis-dimitris --version 2020-1",
+    "predeploy": "npx bower install && npm run build && npm run copy-yaml && npm run copy-ads",
+    "deploy": "gcloud app deploy build/default/app.yaml --no-promote --project greasidis-dimitris --version 2021-03",
     "lint": "npm run lint:javascript",
     "lint:javascript": "eslint . --ext js,html --ignore-path .gitignore"
   },
