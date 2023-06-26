@@ -2,13 +2,13 @@
   "name": "polymer_profile_page_static",
   "license": "BSD-3-Clause",
   "scripts": {
-    "start": "polymer serve --open",
+    "start": "npx polymer serve --open",
     "copy-libraries": "cp -r ./bower_components ./bower_components",
     "copy-yaml": "cp ./opt_to_deploy/app.yaml ./build/default",
     "copy-ads": "cp ./opt_to_deploy/app-ads.txt ./build/default",
     "build": "polymer build --bundle --css-minify --html-minify --js-minify",
     "predeploy": "npx bower install && npm run build && npm run copy-yaml && npm run copy-ads",
-    "deploy": "gcloud app deploy build/default/app.yaml --no-promote --project greasidis-dimitris --version 2022-11",
+    "deploy": "gcloud app deploy build/default/app.yaml --no-promote --project greasidis-dimitris --version 2023-06",
     "lint": "npm run lint:javascript",
     "lint:javascript": "eslint . --ext js,html --ignore-path .gitignore"
   },
